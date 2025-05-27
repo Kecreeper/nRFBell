@@ -21,7 +21,7 @@ My only pcb projects have been from Hackpad and Pixeldust. With Hackpad, I compl
 - Indication LEDs
 
 ### I have this so far:
-![May 26 schematic](journalimages\May26.png)
+![May 26 schematic](/journalimages/May26.png)
 Im unsure, however, of all the capacitors and resistors needed, as well what specific crystals and their capacitors to use for the nRF52840 chip.
 
 **Total time spent: 3h**
