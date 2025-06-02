@@ -21,7 +21,7 @@ My only pcb projects have been from Hackpad and Pixeldust. With Hackpad, I compl
 - Indication LEDs
 
 ### I have this so far:
-![May 26 schematic](journalimages\May26.png)
+![May 26 schematic](/journalimages/May26.png)
 Im unsure, however, of all the capacitors and resistors needed, as well what specific crystals and their capacitors to use for the nRF52840 chip.
 
 **Total time spent: 3h**
@@ -37,6 +37,6 @@ After looking at [this post](https://www.reddit.com/r/embedded/comments/1c180l2/
 I chose this over a BQ2407x because it supports LiFePO4 batteries.
 Now for my next journal I have to finish wiring this and figure out an LDO.
 
-![June 1 schematic](journalimages\June1.png)
+![June 1 schematic](/journalimages/June1.png)
 
 **Total time spent: 3h**
