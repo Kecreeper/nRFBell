@@ -53,3 +53,14 @@ Onto the LDO, I am now realizing that I need a boost converter or a charge pump 
 ![June 2 schematic](journalimages\June2.png)
 
 **Total time spent: 7h😭**
+
+# June 10, 2025
+Changed out the battery charger for 2nd and 3rd time 🏴‍☠️
+I wired the CN3063 battery charger with its beautiful datasheets only to realize it didn't have power-path which is something I wanted.
+Then I had to face the BQ24232 and its datasheet. Texas Instruments has to have the worst datasheets ever made. A literal hour was spent on solely the ITERM pin (probably my inexperience but still).
+
+Anyways, I finished placing decoupling capacitors for the nRF52840 and also editted the pinout.
+
+![June 10 schematic](journalimages\June10.png)
+
+**Total time spent: 5h**
