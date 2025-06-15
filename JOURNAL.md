@@ -64,3 +64,14 @@ Anyways, I finished placing decoupling capacitors for the nRF52840 and also edit
 ![June 10 schematic](journalimages\June10.png)
 
 **Total time spent: 5h**
+
+# June 14, 2025
+
+The next thing I wanted to add and learn about were diodes, specifically a Schottky diode on the VBUS of the USB port. Because I put the VBUS or now 5V on the pinout, I needed one to prevent whatever happens when VBUS and 5V are powered diodeless. 
+I am still unsure on what Schottky diode to choose as I didn't want much voltage from the USB to be lost.
+
+I moved onto the LDO where I chose the MP20051, an 3.3v LDO with a very low dropout. I realized that I should be using VDDH on the nRF52840 with the output from the battery charger so that it would last longer. I was skeptical when I read "In High Voltage mode, the configured output voltage for REG0 must not be greater than REG0 input voltage minus the voltage drop in REG0" without any clarification but then I saw it would just lower VDD/REG0 output so that would work in making the battery get used up more.
+
+![June 14 schematic](journalimages\June14.png)
+
+**Total time spent: 4h**
