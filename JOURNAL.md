@@ -1,7 +1,7 @@
 ---
 title: "nRFBell"
 author: "Eduardo"
-description: "nRF52840 development board with the nPM1100 battery charger, inspired by the nice!nano & Supermini nRF52840"
+description: "nRF52840 development board with the ???? battery charger, inspired by the nice!nano & Supermini nRF52840"
 created_at: "2025-05-26"
 ---
 
@@ -75,3 +75,25 @@ I moved onto the LDO where I chose the MP20051, an 3.3v LDO with a very low drop
 ![June 14 schematic](journalimages\June14.png)
 
 **Total time spent: 4h**
+
+# June 25, 2024
+
+I very UNFORTUNATELY had to go back and focus on the battery charger which I changed out for the BQ24230. It, of course, had the same datasheet making the switch out easy.
+
+I then circled back on how the nRF52 will be powered. For more clarification, if I powered everything through the 3.3v LDO, every component would no longer be powered whenever the battery goes below the dropout voltage. If I were to configure the nRF52 in high voltage mode and power it through the battery charger, I could extend how much of the battery can be used to power the dev board itself drastically. At that point, the voltage of the nRF52's pins wouldn't matter as the LDO wouldn't be able to power at 3.3v.
+![June 25 MS Paint](journalimages\June25MSPaint.png)
+
+Afterwards, I focused on how I would make the battery charger's charging current selectable which most dev boards just use a jumper. However, I was confused on how to achieve this until I realized I can use parallel resistors. After jumping back and forth between a resistor calculator and JLCPCB basic parts, I landed on a 10k and 2.2k resistor. Then I had to switch out the 31.25k on the LDO because that resistor probably doesn't even exist. I remembered that I could use series resistors to add up to 31.25k, thanks physics regents. However, adding up 31.25k would take too many resistors. After an even longer time jumping back and forth between Desmos and JLCPCB basic parts, I chose 100k and 32k resistors. I hope that works.
+
+![June 25 schematic of LDO](journalimages\June25a.png)
+This probably isn't gonna work. Back to the drawing board(jlcpcb's laggy website) yaaaaaaay
+
+From here I found out that JLCPCB charges an ENTIRE 3 DOLLARS for each extended part so I was probably going to have to replace a component anyway. I then decided to switch out the LDO for the NCP186AMX330TAG, an LDO a few dimes cheaper. 
+
+On the nRF, I saw that the nRF's main regulator stage, REG0, uses an LDO which I have seen has a higher dropout than the LDO. Fortunately, the nRF has its own DC/DC regulator with much higher efficiency which looked easy to setup in the schematic.
+
+I also saw that the battery charger became out of stock, amazing. Dealing with that tomrorrow. I'll also figure out a chip antenna which I have to use over a PCB trace antenna since I'm placing 5 pins at the end of the board. This may be the most complicated part of the PCB.
+
+![June 25 complete schematic](journalimages\June25b.png)
+
+**Total time spent: 8h**
